@@ -258,9 +258,13 @@ a:hover {
     .flavor-grid {
         grid-template-columns: 1fr;
     }
-    .header .logo {
-        width: 90px;
-        height: 90px;
-    }
+   .header .logo {
+    /* ¡Aumentamos el tamaño drásticamente! */
+    width: 150px !important;  
+    height: 150px !important; 
+    /* El "!important" fuerza al navegador a usar esta regla */
+    border-radius: 8px; 
+    transition: transform 0.3s ease;
 
 }
+
