@@ -259,7 +259,8 @@ a:hover {
         grid-template-columns: 1fr;
     }
     .header .logo {
-        width: 45px;
-        height: 45px;
+        width: 90px;
+        height: 90px;
     }
+
 }
