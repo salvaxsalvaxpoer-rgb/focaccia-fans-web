@@ -3,81 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FocacciaFans | Sabores Exclusivos</title>
-
+    <title>OnlyFocaccia | Feed Exclusivo</title>
     <link rel="stylesheet" href="style.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="app" class="main-wrapper">
+        <div class="container m-main-container">
+            
+            <header class="l-header">
+                <nav class="l-header__menu m-native-custom-scrollbar m-scrollbar-y">
+                    <div class="l-header__logo-wrapper">
+                         <img src="./img/onlyfocaccia-logo.png" alt="OnlyFocaccia Logo" class="l-header__logo">
+                    </div>
+
+                    <a href="#inicio" class="m-reset-wcag-link-focus l-header__menu__item m-current" data-name="Inicio">
+                        <span class="l-header__menu__item__icon">
+                            <svg class="m-nav-icon g-icon"><use href="#icon-home"></use></svg>
+                        </span>
+                        <span class="l-header__menu__item__text">Inicio</span>
+                    </a>
+                    <a href="#sabores" class="m-reset-wcag-link-focus l-header__menu__item" data-name="Sabores">
+                        <span class="l-header__menu__item__icon">
+                            <svg class="m-nav-icon g-icon"><use href="#icon-collections-lg"></use></svg>
+                        </span>
+                        <span class="l-header__menu__item__text">Menú Completo</span>
+                    </a>
+                    <a href="#suscripcion" class="m-reset-wcag-link-focus l-header__menu__item" data-name="Suscripciones">
+                        <span class="l-header__menu__item__icon">
+                            <svg class="m-nav-icon g-icon"><use href="#icon-lg-following"></use></svg>
+                        </span>
+                        <span class="l-header__menu__item__text">Ofertas VIP</span>
+                    </a>
+                    
+                    <a href="#crear" tabindex="0" class="m-reset-wcag-link-focus l-header__menu__item m-create-post g-btn m-rounded m-lg m-reset-width" data-name="PostsCreate">
+                        <span class="l-header__menu__item__icon"><svg class="g-icon"><use href="#icon-add"></use></svg></span>
+                        <span class="l-header__menu__item__text">Hacer Pedido</span>
+                    </a>
+                </nav>
+            </header>
+            
+            <main id="content" tabindex="-1">
+                <div class="l-wrapper">
+                    <div class="l-wrapper__holder-content">
+                        <div class="l-wrapper__content">
+                            <div class="b-feed__wrapper">
+                                <div class="b-feed">
+                                    
+                                    <div class="g-page__header m-real-sticky">
+                                        <h1 class="g-page-title"><span class="b-inside-el g-text-ellipsis" id="inicio">OnlyFocaccia | El Pan Nuestro</span></h1>
+                                    </div>
+                                    
+                                    <div class="b-page-content g-border-bottom-bold m-fake-form" id="crear">
+                                        <form id="make_post_form" class="b-create-post-form g-position-relative">
+                                            <div class="b-make-post m-with-free-options">
+                                                <div class="d-flex flex-column w-100 justify-content-start">
+                                                    <div class="b-make-post__main-wrapper">
+                                                        <div class="b-make-post__wrapper m-textarea-post">
+                                                            <div class="b-make-post__textarea-wrapper">
+                                                                <div class="g-input__wrapper input-text-editor">
+                                                                    <div class="b-input-contenteditable m-with-placeholder">
+                                                                        <div contenteditable="true" role="textbox" data-placeholder="¿Qué sabor quieres hoy? ¡Tu pedido rápido aquí!"><p><br></p></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="b-make-post__sticky-panel">
+                                                        <div class="b-make-post__actions">
+                                                            <button id="attach_file_photo" type="button" class="g-btn m-icon m-gray m-sm-size attach_file has-tooltip" aria-label="Adjuntar Fotos de Focaccia"><svg class="g-icon"><use href="#icon-media"></use></svg></button>
+                                                            <div class="b-make-post__actions__spacer"></div>
+                                                            <button type="submit" class="g-btn m-rounded m-lg m-primary m-reset-width">¡Lo quiero!</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    
+                                    <div class="b-wrapper-feed">
+                                        <div class="b-post__wrapper">
+                                            <div class="b-post is-not-post-page">
+                                                <div class="b-post__header m-w50">
+                                                    <span class="b-post__avatar">
+                                                        <span class="g-avatar m-w50 m-reset-wcag-link-focus online_status_class online">
+                                                            <div class="g-avatar__placeholder m-text-avatar">FF</div>
+                                                        </span>
+                                                    </span>
+                                                    <div class="b-username-row m-gap-lg">
+                                                        <a href="#" class="b-username"><div class="g-user-name m-verified m-md-size">FocacciaFans Oficial</div></a>
+                                                        <div class="b-post__profile-details"><span class="b-post__date"><span title="10 de Noviembre, 2025">hace 3 horas</span></span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="b-post__content m-post-has-media m-post-has-text">
+                                                    <div class="b-post__text m-break-word">
+                                                        <p>¡El secreto de la Focaccia de Cebolla Caramelizada! Usamos una fermentación lenta de 48 horas y un toque de queso parmesano. Crujido y suavidad garantizados. 🥖✨</p>
+                                                    </div>
+                                                    <div class="post_media b-post-media-holder">
+                                                        <img src="./img/focaccia-principal.png" alt="Focaccia Exclusiva" class="b-post__media__img">
+                                                    </div>
+                                                </div>
+                                                <div class="b-post__tools">
+                                                    <button type="button" class="b-post__tools__btn set-favorite-btn g-btn m-icon m-with-round-hover m-gray" aria-label="Me gusta">
+                                                        <svg class="g-icon"><use href="#icon-like"></use></svg>
+                                                    </button>
+                                                    <div class="b-post__tools__item m-with-text-button">
+                                                        <button type="button" class="b-post__tools__btn m-uppercase g-btn m-flexible-behavior m-sm-size m-transporent m-icon m-with-text">
+                                                            <span class="b-flexible-behavior-icon"><svg data-icon-name="icon-funds" class="g-icon"><use href="#icon-funds"></use></svg></span>
+                                                            <span class="b-flexible-behavior-text">Enviar Propina</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
     
-    <header class="header">
-        <div class="container">
-            <img src="./img/onlyfocaccia-logo.png" alt="OnlyFocaccia Logo" class="logo">
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#nuestros-sabores">Sabores</a></li>
-                    <li><a href="#suscripcion">Suscripción VIP</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <section class="hero" id="inicio">
-        <div class="container">
-            
-            <img src="./img/focaccia-principal.png" alt="Focaccia Exclusiva" class="hero-image">
-            
-            <div class="hero-content">
-                <h1>Descubre el Secreto de la Focaccia Artesanal</h1>
-                <p>Contenido exclusivo para amantes de la buena focaccia. ¡Suscríbete para no perderte ningún sabor!</p>
-                <a href="#suscripcion" class="button">Suscríbete Ahora (¡Gratis por tiempo limitado!)</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="content-section" id="nuestros-sabores">
-        <div class="container">
-            <h2>Nuestros Sabores Exclusivos</h2>
-            <div class="flavor-grid">
-                
-                <article class="flavor-item">
-                    <img src="#" alt="Focaccia de Romero">
-                    <h3>Focaccia Clásica de Romero</h3>
-                    <p>La receta tradicional que nunca falla. Crujiente por fuera, suave por dentro.</p>
-                </article>
-
-                <article class="flavor-item">
-                    <img src="#" alt="Focaccia de Tomate y Albahaca">
-                    <h3>Focaccia de Tomate y Albahaca</h3>
-                    <p>Frescura mediterránea en cada bocado. ¡Irresistible!</p>
-                </article>
-
-                <article class="flavor-item">
-                    <img src="#" alt="Focaccia de Aceitunas Negras">
-                    <h3>Focaccia de Aceitunas Negras</h3>
-                    <p>Intenso sabor para los paladares más exigentes.</p>
-                </article>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="call-to-action" id="suscripcion">
-        <div class="container">
-            <h2>¿Listo para unirte a FocacciaFans VIP?</h2>
-            <p>Accede a recetas secretas, descuentos especiales y las focaccias del mes antes que nadie.</p>
-            <a href="#" class="button primary">¡Únete a la Comunidad!</a>
-            <p class="small-text">No te preocupes, el contenido principal siempre será gratuito. ¡Solo para verdaderos aficionados!</p>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2023 FocacciaFans. Todos los derechos reservados. | <a href="#">Política de Privacidad</a></p>
-        </div>
-    </footer>
-
+    <svg id="of-svg-sprite" display="none" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-home" viewBox="0 0 32 32"><path d="M29,13.82a1,1,0,0,0-.37-.77l-12-9.82a1,1,0,0,0-1.26,0l-12,9.82a1,1,0,0,0-.37.77,1,1,0,0,0,1,1,.94.94,0,0,0,.63-.23L6,13.47V24.2A2.81,2.81,0,0,0,8.8,27h2.9a2.81,2.81,0,0,0,2.8-2.8V22.8a.8.8,0,0,1,.8-.8h1.4a.8.8,0,0,1,.8.8v1.4A2.81,2.81,0,0,0,20.3,27h2.9A2.81,2.81,0,0,0,26,24.2V13.47l1.37,1.12a.94.94,0,0,0,.63.23A1,1,0,0,0,29,13.82ZM24,24.2a.8.8,0,0,1-.8.8H20.3a.8.8,0,0,1-.8-.8V22.8A2.81,2.81,0,0,0,16.7,20H15.3a2.81,2.81,0,0,0-2.8,2.8v1.4a.8.8,0,0,1-.8.8H8.8a.8.8,0,0,1-.8-.8V11.84l8-6.55,8,6.55Z"/></symbol>
+        <symbol id="icon-collections-lg" viewBox="0 0 32 32"><path d="M7,11a1,1,0,0,0,1-1V9a2,2,0,0,1,2-2H22a2,2,0,0,1,2,2v1a1,1,0,0,0,2,0V9a4,4,0,0,0-4-4H10A4,4,0,0,0,6,9v1A1,1,0,0,0,7,11Zm18,8a1,1,0,0,0-1,1v5.3l-6.06-3.37a4,4,0,0,0-3.89,0L8,25.3V20a1,1,0,0,0-2,0v7a1,1,0,0,0,.49.86,1,1,0,0,0,1,0L15,23.69a2,2,0,0,1,1.95,0l7.54,4.19A1,1,0,0,0,25,28a1,1,0,0,0,.51-.14A1,1,0,0,0,26,27V20A1,1,0,0,0,25,19Zm-6.2-4.45a.35.35,0,0,0-.35-.35H16.83l-.5-1.54a.35.35,0,0,0-.66,0l-.5,1.54H13.55a.35.35,0,0,0-.35.35.34.34,0,0,0,.14.28l1.31.95-.5,1.54a.41.41,0,0,0,0,.11.35.35,0,0,0,.35.35.31.31,0,0,0,.2-.07L16,16.76l1.31.95a.31.31,0,0,0,.2.07.35.35,0,0,0,.35-.35.43.43,0,0,0,0-.11l-.5-1.54,1.31-.95A.34.34,0,0,0,18.8,14.55Zm9,0a.35.35,0,0,0-.35-.35H25.87l-.5-1.54a.35.35,0,0,0-.33-.24.35.35,0,0,0-.33.24l-.5,1.54H22.59a.35.35,0,0,0-.35.35.32.32,0,0,0,.15.28l1.31.95-.51,1.54a.41.41,0,0,0,0,.11.35.35,0,0,0,.35.35.31.31,0,0,0,.2-.07L25,16.76l1.31.95a.31.31,0,0,0,.21.07.35.35,0,0,0,.35-.35.43.43,0,0,0,0-.11l-.5-1.54,1.31-.95A.34.34,0,0,0,27.84,14.55ZM8.27,17.71a.31.31,0,0,0,.2.07.35.35,0,0,0,.35-.35.41.41,0,0,0,0-.11L8.3,15.78l1.31-.95a.32.32,0,0,0,.15-.28.35.35,0,0,0-.35-.35H7.79l-.5-1.54A.35.35,0,0,0,7,12.42a.35.35,0,0,0-.33.24l-.5,1.54H4.51a.35.35,0,0,0-.35.35.34.34,0,0,0,.14.28l1.31.95-.5,1.54a.43.43,0,0,0,0,.11.36.36,0,0,0,.35.35.31.31,0,0,0,.21-.07L7,16.76Z"/></symbol>
+        <symbol id="icon-lg-following" viewBox="0 0 32 32"><path d="M12,14.59a2.18,2.18,0,0,0-2.11-2.23A2.16,2.16,0,0,0,8,13.8a2.16,2.16,0,0,0-1.89-1.44A2.18,2.18,0,0,0,4,14.59c0,1.5,1.49,2.85,3.51,4.85a.7.7,0,0,0,1,0c2-2,3.49-3.35,3.49-4.85Zm6,.41a5,5,0,1,0-5-5A5,5,0,0,0,18,15Zm0-8a3,3,0,1,1-3,3A3,3,0,0,1,18,7Zm0,10a9,9,0,0,0-9,9,1,1,0,0,0,2,0,7,7,0,0,1,14,0,1,1,0,0,0,2,0A9,9,0,0,0,18,17Z"/></symbol>
+        <symbol id="icon-add" viewBox="0 0 24 24"><path d="M4.5,13H11v6.5a1,1,0,0,0,2,0V13h6.5a1,1,0,0,0,0-2H13V4.5a1,1,0,0,0-2,0V11H4.5a1,1,0,0,0,0,2Z"/></symbol>
+        <symbol id="icon-like" viewBox="0 0 24 24"><path d="M12,22a1,1,0,0,1-.71-.29C5.87,16.29,2,13.06,2,9A5.89,5.89,0,0,1,7.75,3,5.66,5.66,0,0,1,12,5.2,5.66,5.66,0,0,1,16.25,3,5.89,5.89,0,0,1,22,9c0,4-3.75,7.17-9.29,12.71A1,1,0,0,1,12,22ZM7.75,5A3.88,3.88,0,0,0,4,9c0,3.12,3.81,6.44,8,10.59,4.09-4.06,8-7.47,8-10.59a3.88,3.88,0,0,0-3.75-4A3.8,3.8,0,0,0,13,7.56a1,1,0,0,1-1.9,0A3.8,3.8,0,0,0,7.75,5Z"/></symbol>
+        <symbol id="icon-funds" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm1-8.8c-1.17-.24-2.06-.33-2.06-.87s.47-.57 1.17-.57a1.36 1.36 0 0 1 1 .48.53.53 0 0 0 .39.18H15a.24.24 0 0 0 .23-.25c0-.78-1-1.72-2.23-2V7.3a.29.29 0 0 0-.3-.3h-1.4a.29.29 0 0 0-.29.3v.82a2.57 2.57 0 0 0-2.2 2.26c0 3.13 4.52 2.07 4.52 3.22 0 .53-.52.59-1.41.59a1.47 1.47 0 0 1-1.16-.57.61.61 0 0 0-.44-.19h-1.4a.24.24 0 0 0-.22.24c0 1.11 1.12 1.9 2.31 2.21v.82a.29.29 0 0 0 .29.3h1.39a.29.29 0 0 0 .29-.3v-.78c1.28-.23 2.32-1 2.32-2.33s-.92-2.09-2.3-2.39z"/></symbol>
+        <symbol id="icon-media" viewBox="0 0 24 24"><path d="M18,3H6A3,3,0,0,0,3,6V18a3,3,0,0,0,3,3H18a3,3,0,0,0,3-3V6A3,3,0,0,0,18,3Zm1,15a1,1,0,0,1-1,1H6a1,1,0,0,1-1-1V6A1,1,0,0,1,6,5H18a1,1,0,0,1,1,1ZM9,10.5A1.5,1.5,0,1,0,7.5,9,1.5,1.5,0,0,0,9,10.5ZM14,13l-3,3L9,14,6.85,16.15a.47.47,0,0,0-.14.35.5.5,0,0,0,.5.5h9.58a.5.5,0,0,0,.5-.5.47.47,0,0,0-.14-.35Z"/></symbol>
+        <path d="M137.5,75a125,125,0,1,0,125,125A125,125,0,0,0,137.5,75Zm0,162.5A37.5,37.5,0,1,1,175,200,37.45,37.45,0,0,1,137.5,237.5Z" fill="#00aeef" opacity=".8"></path>
+        <path d="M278,168.75c31.76,9.14,69.25,0,69.25,0-10.88,47.5-45.38,77.25-95.13,80.87A124.73,124.73,0,0,1,137.5,325L175,205.81C213.55,83.3,233.31,75,324.73,75H387.5C377,121.25,340.81,156.58,278,168.75Z" fill="#008ccf"></path>
+    </svg>
 </body>
 </html>
