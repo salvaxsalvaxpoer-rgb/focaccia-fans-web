@@ -1,20 +1,25 @@
 /* =========================================================================
-   PALETA DE COLORES AZULES (Colores solicitados)
+   PALETA DE COLORES AZULES Y VARIABLES
    ========================================================================= */
 :root {
-    --color-bg-light: #F0F2F5;       /* Fondo General (Gris claro, base de OF) */
-    --color-bg-card: #FFFFFF;        /* Fondo de tarjetas y posts (Blanco) */
-    --color-blue-dark: #1F3B59;      /* Azul Oscuro (Para botones/acento principal) */
-    --color-blue-medium: #4682B4;    /* Azul Medio (Para degradados, texto, acento) */
-    --color-blue-light: #87CEEB;     /* Azul Claro (Para degradados, fondos de hover) */
-    --color-text-dark: #242529;      /* Texto principal */
-    --color-text-gray: #8A96A3;      /* Texto secundario/botones inactivos */
-    --color-border: #E5E5E5;         /* Borde sutil */
-    --color-link-blue: #1E90FF;      /* Azul puro para enlaces */
+    --color-bg-light: #F0F2F5;        /* Fondo del Feed (Gris App) */
+    --color-bg-card: #FFFFFF;         /* Fondo de Tarjetas y Menús (Blanco Puro) */
+    --color-blue-dark: #1F3B59;       /* Azul Oscuro (Acción principal) */
+    --color-blue-medium: #4682B4;     /* Azul Acero (Iconos, acentos) */
+    --color-blue-light: #87CEEB;      /* Azul Claro (Fondos de Hover, bordes) */
+    --color-text-dark: #242529;       /* Texto principal */
+    --color-text-gray: #8A96A3;       /* Texto secundario/Inactivo */
+    --color-link-primary: #1E90FF;    /* Azul brillante para enlaces/botones */
+    --color-border: #E5E5E5;          /* Borde sutil */
+
+    /* Animación */
+    --transition-speed: 0.25s;
+    --shadow-subtle: 0 1px 4px rgba(0, 0, 0, 0.05);
+    --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* =========================================================================
-   LAYOUT GENERAL Y BARRA LATERAL
+   LAYOUT BASE
    ========================================================================= */
 body {
     font-family: 'Roboto', sans-serif;
@@ -34,14 +39,16 @@ body {
 
 .container.m-main-container {
     display: grid;
-    /* Estructura de 3 Columnas: 1. Nav Fija | 2. Contenido Principal | 3. Espacio vacío/Sidebar derecha */
+    /* Estructura de 3 Columnas */
     grid-template-columns: 80px minmax(300px, 600px) 1fr; 
     max-width: 1500px;
     width: 100%;
     margin: 0 auto;
 }
 
-/* -------------------- BARRA LATERAL (HEADER) -------------------- */
+/* =========================================================================
+   BARRA LATERAL DE NAVEGACIÓN (HEADER)
+   ========================================================================= */
 .l-header {
     position: sticky;
     top: 0;
@@ -49,11 +56,9 @@ body {
     padding: 10px 0;
     background-color: var(--color-bg-card);
     border-right: 1px solid var(--color-border);
-    display: flex;
-    flex-direction: column;
+    box-shadow: var(--shadow-subtle);
 }
 
-/* LOGO ESCALADO */
 .l-header__logo-wrapper {
     padding: 10px 22px; 
     margin-bottom: 10px;
@@ -62,17 +67,16 @@ body {
 }
 
 .l-header__logo {
-    width: 45px; /* Aumentar el tamaño del logo */
+    width: 45px;
     height: 45px;
-    border-radius: 8px; 
-    transition: transform 0.3s ease;
+    border-radius: 8px;
+    transition: transform var(--transition-speed) ease-out;
 }
 
 .l-header__logo:hover {
-    transform: scale(1.1); /* Animación al pasar el mouse */
+    transform: scale(1.1);
 }
 
-/* Ítems de la Navegación */
 .l-header__menu__item {
     display: flex;
     flex-direction: column;
@@ -81,7 +85,7 @@ body {
     text-align: center;
     color: var(--color-text-dark);
     text-decoration: none;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: background-color var(--transition-speed) ease;
 }
 
 .l-header__menu__item:hover {
@@ -93,7 +97,7 @@ body {
     width: 24px;
     height: 24px;
     fill: var(--color-text-dark);
-    transition: fill 0.2s ease;
+    transition: fill var(--transition-speed) ease;
 }
 
 .l-header__menu__item:hover .g-icon {
@@ -108,53 +112,56 @@ body {
 
 /* Botón de Acción Principal (Hacer Pedido) */
 .l-header__menu__item.m-create-post {
-    /* Degradado de azules */
     background: linear-gradient(145deg, var(--color-blue-medium), var(--color-blue-dark));
     color: var(--color-bg-card);
     padding: 12px 0;
-    margin-top: 15px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 15px 10px 0 10px; /* Margen para separarlo de los iconos */
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.2s ease;
+    transition: all var(--transition-speed) ease;
 }
 
 .l-header__menu__item.m-create-post:hover {
     background: var(--color-blue-dark);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px); /* Ligeramente elevado */
 }
 
 .l-header__menu__item.m-create-post .g-icon {
     fill: var(--color-bg-card);
 }
 
-/* -------------------- CONTENIDO PRINCIPAL (MAIN FEED) -------------------- */
+/* =========================================================================
+   CONTENIDO PRINCIPAL (MAIN FEED)
+   ========================================================================= */
 main#content {
     flex-grow: 1;
     overflow-y: auto;
     padding: 0;
+    padding-left: 20px; /* Separación del menú lateral */
 }
 
 .l-wrapper__holder-content {
     max-width: 600px;
     margin: 0; 
+    padding: 0 20px; /* Espacio interior para el feed */
 }
 
-/* Cabecera del Feed */
+/* Cabecera del Feed (Fija al hacer scroll) */
 .g-page__header {
     background-color: var(--color-bg-light); 
-    padding: 15px 20px;
-    margin-bottom: 10px;
+    padding: 15px 0;
     border-bottom: 1px solid var(--color-border);
-    /* Animación de opacidad al cargar */
-    animation: fadeIn 1s ease-out;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .g-page-title {
     font-size: 1.4em;
     font-weight: 700;
     color: var(--color-blue-dark);
+    transition: color var(--transition-speed) ease;
 }
 
 /* Caja para Crear Post/Hacer Pedido Rápido */
@@ -163,111 +170,128 @@ main#content {
     border-radius: 12px;
     border: 1px solid var(--color-border);
     padding: 15px;
-    margin: 10px 20px 20px 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-medium);
 }
 
 .b-make-post__actions .m-primary {
-    /* Degradado de azules para botón de acción en el feed */
-    background: linear-gradient(145deg, var(--color-blue-medium), var(--color-blue-dark));
+    background: linear-gradient(145deg, var(--color-link-primary), var(--color-blue-medium)); 
     color: var(--color-bg-card);
-    fill: var(--color-bg-card);
     padding: 8px 20px;
     border-radius: 20px;
     font-weight: 700;
-    transition: all 0.2s ease;
+    transition: all var(--transition-speed) ease;
 }
 
 .b-make-post__actions .m-primary:hover {
     background: var(--color-blue-dark);
 }
 
-/* Estilo de los Posts Individuales (Publicaciones) */
+/* -------------------- ESTILO DE POSTS (PUBLICACIONES) -------------------- */
 .b-post__wrapper {
     background-color: var(--color-bg-card);
     border-radius: 12px;
-    margin: 0 20px 20px 20px;
+    margin-bottom: 20px;
     padding: 15px;
     border: 1px solid var(--color-border);
-    transition: box-shadow 0.3s ease;
+    box-shadow: var(--shadow-subtle);
+    transition: box-shadow var(--transition-speed) ease;
 }
 
 .b-post__wrapper:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Sombra más fuerte al pasar el mouse */
+}
+
+/* Animación de Entrada Suave */
+.post-animated {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideIn 0.8s ease-out forwards;
+}
+
+@keyframes slideIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.b-post__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .b-post__avatar .g-avatar__placeholder {
-    /* Estilo del placeholder "FF" */
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: var(--color-blue-medium);
+    background-color: var(--color-blue-dark);
     color: var(--color-bg-card);
+    border: 2px solid var(--color-link-primary); /* Borde azul brillante */
+    box-shadow: 0 0 0 1px var(--color-bg-card); /* Borde interior blanco (para el efecto de OF) */
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
     margin-right: 10px;
-    border: 2px solid var(--color-link-blue); /* Borde azul para el avatar */
 }
 
-.b-post__media__img {
-    /* Imagen del post */
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 2px solid var(--color-blue-light);
-    transition: transform 0.3s ease;
+.g-user-name {
+    font-weight: 700;
+    color: var(--color-text-dark);
+    transition: color var(--transition-speed) ease;
 }
 
-.b-post__media__img:hover {
-    transform: scale(1.01); /* Animación: Ligeramente más grande al pasar el mouse */
-}
-
-/* Herramientas del Post (Like/Propina) */
-.b-post__tools__btn:hover {
-    background-color: var(--color-blue-light);
-    fill: var(--color-blue-medium);
+.b-username:hover .g-user-name {
     color: var(--color-blue-medium);
 }
 
-/* Enlaces (para que sean azules) */
-a {
-    color: var(--color-link-blue);
-    text-decoration: none;
+.b-post__media__img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed) ease;
+}
+
+.b-post__media__img:hover {
+    transform: scale(1.01); /* Efecto sutil */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Herramientas del Post (Like/Propina) */
+.b-post__tools {
+    display: flex;
+    padding-top: 10px;
+    border-top: 1px solid var(--color-border);
+    margin-top: 10px;
+}
+
+.b-post__tools__btn {
+    color: var(--color-text-gray);
+    fill: var(--color-text-gray);
+    transition: all var(--transition-speed) ease;
+    padding: 8px; /* Área de clic más grande */
+    border-radius: 50px;
+}
+
+.b-post__tools__btn:hover {
+    background-color: var(--color-blue-light);
+    fill: var(--color-link-primary);
+    color: var(--color-link-primary);
+    transform: translateY(-1px); /* Elevación sutil */
 }
 
 /* =========================================================================
-   ANIMACIÓN (Añadida al final del archivo para un funcionamiento limpio)
-   ========================================================================= */
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes pulse_preload{
-    0%,100%{-webkit-transform:scale(1);transform:scale(1)}
-    50%{-webkit-transform:scale(1.1);transform:scale(1.1)}
-}
-
-.b-posts_preloader .g-icon {
-    animation: pulse_preload 2s linear infinite; /* Aplica la animación al icono */
-}
-
-
-/* =========================================================================
-   RESPONSIVE DESIGN (Móvil - Columna única)
+   RESPONSIVE (Móvil)
    ========================================================================= */
 @media (max-width: 800px) {
     .container.m-main-container {
-        /* En móvil, solo se ve la columna de contenido */
         grid-template-columns: 1fr;
     }
     
     .l-header {
-        position: fixed; /* Fija la nav en la parte superior */
+        position: fixed;
         top: 0;
         left: 0;
         right: 0;
@@ -276,36 +300,39 @@ a {
         z-index: 100;
         border-right: none;
         border-bottom: 1px solid var(--color-border);
+        box-shadow: none;
+        display: block; /* Asegura que se muestre en una fila */
     }
-    /* Oculta la navegación vertical y la convierte en una barra horizontal o la oculta*/
+
     .l-header__menu {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         width: 100%;
-        max-width: 100%;
     }
 
-    .l-header__logo-wrapper {
-        display: none; /* Ocultar el logo en la nav móvil para ahorrar espacio */
+    .l-header__logo-wrapper, .l-header__menu__item.m-create-post {
+        display: none; 
     }
 
     .l-header__menu__item {
         padding: 8px 5px;
         flex-grow: 1;
-    }
-
-    .l-header__menu__item.m-create-post {
-        display: none; /* Ocultar el botón grande en el móvil */
-    }
-
-    main#content {
-        margin-top: 60px; /* Desplaza el contenido por debajo de la nav superior */
-        padding: 0;
+        font-size: 10px;
     }
     
+    main#content {
+        margin-top: 55px; /* Desplaza el contenido por debajo de la nav superior */
+        padding: 0;
+    }
+
+    .g-page__header, .l-wrapper__holder-content {
+        padding: 0 10px;
+    }
+
     .b-post__wrapper, .b-create-post-form {
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 10px; /* Reducir padding en móvil */
     }
 }
